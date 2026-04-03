@@ -15,316 +15,154 @@
     --dark: #1a1a2e;
     --light: #f9f7ff;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--light); color: var(--dark); overflow-x: hidden; }
 
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--light);
-    color: var(--dark);
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 6%;
-    background: rgba(249,247,255,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 2px solid rgba(155,48,200,0.08);
+    padding: 1rem 6%; background: rgba(249,247,255,0.92);
+    backdrop-filter: blur(12px); border-bottom: 2px solid rgba(155,48,200,0.08);
   }
   .nav-logo { font-size: 1.4rem; font-weight: 900; color: var(--purple); letter-spacing: -1px; }
   .nav-logo span { color: var(--green); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none; font-weight: 700; font-size: .95rem;
-    color: var(--dark); transition: color .2s;
-  }
+  .nav-links a { text-decoration: none; font-weight: 700; font-size: .95rem; color: var(--dark); transition: color .2s; }
   .nav-links a:hover { color: var(--purple); }
-  .nav-cta {
-    background: var(--purple); color: #fff; padding: .55rem 1.4rem;
-    border-radius: 50px; font-weight: 800; font-size: .9rem;
-    text-decoration: none; transition: transform .2s, box-shadow .2s;
-    box-shadow: 0 4px 18px rgba(155,48,200,.35);
-  }
+  .nav-cta { background: var(--purple); color: #fff; padding: .55rem 1.4rem; border-radius: 50px; font-weight: 800; font-size: .9rem; text-decoration: none; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 18px rgba(155,48,200,.35); }
   .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(155,48,200,.45); }
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 7rem 6% 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background:
-      radial-gradient(ellipse 60% 60% at 80% 30%, rgba(155,48,200,.12) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 50% at 10% 80%, rgba(91,187,74,.10) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 60% 90%, rgba(62,198,198,.08) 0%, transparent 70%);
-  }
-  .blob {
-    position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; animation: float 8s ease-in-out infinite;
-  }
-  .blob-1 { width: 380px; height: 380px; background: var(--purple); top: -80px; right: 5%; animation-delay: 0s; }
+  /* HERO */
+  #hero { min-height: 100vh; display: flex; align-items: center; padding: 7rem 6% 4rem; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 60% 60% at 80% 30%, rgba(155,48,200,.12) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 10% 80%, rgba(91,187,74,.10) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 60% 90%, rgba(62,198,198,.08) 0%, transparent 70%); }
+  .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; animation: float 8s ease-in-out infinite; }
+  .blob-1 { width: 380px; height: 380px; background: var(--purple); top: -80px; right: 5%; }
   .blob-2 { width: 280px; height: 280px; background: var(--green); bottom: 5%; right: 20%; animation-delay: -3s; }
   .blob-3 { width: 200px; height: 200px; background: var(--cyan); top: 40%; left: -60px; animation-delay: -5s; }
   @keyframes float { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
-
   .hero-content { position: relative; z-index: 1; max-width: 680px; }
-  .hero-tag {
-    display: inline-block; background: rgba(155,48,200,.1); color: var(--purple);
-    border: 1.5px solid rgba(155,48,200,.3); border-radius: 50px;
-    padding: .35rem 1.1rem; font-size: .85rem; font-weight: 800;
-    margin-bottom: 1.4rem; letter-spacing: .5px;
-  }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    line-height: 1.08;
-    margin-bottom: 1.5rem;
-    color: var(--dark);
-  }
+  .hero-tag { display: inline-block; background: rgba(155,48,200,.1); color: var(--purple); border: 1.5px solid rgba(155,48,200,.3); border-radius: 50px; padding: .35rem 1.1rem; font-size: .85rem; font-weight: 800; margin-bottom: 1.4rem; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.08; margin-bottom: 1.5rem; }
   .hero-title em { color: var(--purple); font-style: italic; }
-  .hero-sub {
-    font-size: 1.15rem; line-height: 1.7; color: #555;
-    margin-bottom: 2.5rem; max-width: 520px;
-  }
+  .hero-sub { font-size: 1.15rem; line-height: 1.7; color: #555; margin-bottom: 2.5rem; max-width: 520px; }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--purple); color: #fff; padding: .85rem 2rem;
-    border-radius: 50px; font-weight: 800; font-size: 1rem;
-    text-decoration: none; transition: all .25s;
-    box-shadow: 0 6px 24px rgba(155,48,200,.4);
-  }
+  .btn-primary { background: var(--purple); color: #fff; padding: .85rem 2rem; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: all .25s; box-shadow: 0 6px 24px rgba(155,48,200,.4); }
   .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(155,48,200,.5); }
-  .btn-secondary {
-    background: transparent; color: var(--dark); padding: .85rem 2rem;
-    border-radius: 50px; font-weight: 800; font-size: 1rem;
-    text-decoration: none; border: 2.5px solid var(--dark);
-    transition: all .25s;
-  }
+  .btn-secondary { background: transparent; color: var(--dark); padding: .85rem 2rem; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; border: 2.5px solid var(--dark); transition: all .25s; }
   .btn-secondary:hover { border-color: var(--purple); color: var(--purple); }
-
-  .hero-stats {
-    display: flex; gap: 2.5rem; margin-top: 3.5rem;
-    padding-top: 2rem; border-top: 2px solid rgba(155,48,200,.12);
-  }
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 2px solid rgba(155,48,200,.12); }
   .stat-num { font-size: 2rem; font-weight: 900; color: var(--purple); line-height: 1; }
   .stat-label { font-size: .82rem; color: #777; font-weight: 700; margin-top: .2rem; text-transform: uppercase; letter-spacing: .5px; }
 
-  /* ── SECTION BASE ── */
+  /* SECTIONS */
   section { padding: 6rem 6%; }
-  .section-tag {
-    display: inline-block; font-size: .8rem; font-weight: 800;
-    text-transform: uppercase; letter-spacing: 2px;
-    color: var(--purple); margin-bottom: .8rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;
-    margin-bottom: 1rem; color: var(--dark);
-  }
+  .section-tag { display: inline-block; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--purple); margin-bottom: .8rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1rem; color: var(--dark); }
   .section-sub { font-size: 1.05rem; color: #666; max-width: 560px; line-height: 1.7; }
 
-  /* ── ABOUT ── */
-  #sobre {
-    background: var(--dark); color: #fff;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  }
+  /* SOBRE */
+  #sobre { background: var(--dark); color: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   #sobre .section-title { color: #fff; }
   #sobre .section-sub { color: rgba(255,255,255,.65); }
-  .about-visual {
-    position: relative; display: flex; align-items: center; justify-content: center;
-  }
-  .about-card {
-    background: linear-gradient(135deg, var(--purple), var(--cyan));
-    border-radius: 32px; padding: 3rem; text-align: center;
-    position: relative; overflow: hidden; width: 100%;
-    box-shadow: 0 30px 80px rgba(155,48,200,.4);
-  }
-  .about-card::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,.15), transparent 60%);
-  }
+  .about-card { background: linear-gradient(135deg, var(--purple), var(--cyan)); border-radius: 32px; padding: 3rem; text-align: center; position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(155,48,200,.4); }
+  .about-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,.15), transparent 60%); }
   .about-card-icon { font-size: 4rem; margin-bottom: 1rem; }
   .about-card-text { font-size: 1.3rem; font-weight: 900; color: #fff; position: relative; }
   .about-card-sub { color: rgba(255,255,255,.75); font-size: .95rem; margin-top: .5rem; position: relative; }
   .about-pills { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
-  .pill {
-    background: rgba(155,48,200,.15); border: 1.5px solid rgba(155,48,200,.3);
-    color: var(--cyan); padding: .4rem 1rem; border-radius: 50px;
-    font-size: .85rem; font-weight: 700;
-  }
+  .pill { background: rgba(155,48,200,.15); border: 1.5px solid rgba(155,48,200,.3); color: var(--cyan); padding: .4rem 1rem; border-radius: 50px; font-size: .85rem; font-weight: 700; }
 
-  /* ── SERVICES ── */
+  /* SERVICOS */
   #servicos { background: var(--light); }
   .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1rem; }
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-  .service-card {
-    background: #fff; border-radius: 24px; padding: 2.2rem;
-    border: 2px solid transparent;
-    transition: all .3s; position: relative; overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0,0,0,.06);
-  }
-  .service-card::before {
-    content: ''; position: absolute; inset: 0; opacity: 0;
-    transition: opacity .3s;
-    background: linear-gradient(135deg, rgba(155,48,200,.04), rgba(62,198,198,.04));
-  }
+  .service-card { background: #fff; border-radius: 24px; padding: 2.2rem; border: 2px solid transparent; transition: all .3s; position: relative; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+  .service-card::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity .3s; background: linear-gradient(135deg, rgba(155,48,200,.04), rgba(62,198,198,.04)); }
   .service-card:hover { border-color: var(--purple); transform: translateY(-6px); box-shadow: 0 20px 48px rgba(155,48,200,.15); }
   .service-card:hover::before { opacity: 1; }
-  .service-icon {
-    width: 56px; height: 56px; border-radius: 16px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem; margin-bottom: 1.4rem;
-  }
+  .service-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1.4rem; }
   .service-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: .6rem; }
   .service-card p { font-size: .92rem; color: #666; line-height: 1.6; }
 
-  /* ── PORTFOLIO ── */
+  /* PORTFOLIO */
   #portfolio { background: #f0ecfa; }
   .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
   .portfolio-filters { display: flex; gap: .6rem; flex-wrap: wrap; }
-  .filter-btn {
-    padding: .45rem 1.1rem; border-radius: 50px; border: 2px solid #ddd;
-    background: transparent; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .85rem;
-    cursor: pointer; transition: all .2s; color: #666;
-  }
+  .filter-btn { padding: .45rem 1.1rem; border-radius: 50px; border: 2px solid #ddd; background: transparent; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .85rem; cursor: pointer; transition: all .2s; color: #666; }
   .filter-btn.active, .filter-btn:hover { background: var(--purple); border-color: var(--purple); color: #fff; }
-  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .portfolio-card {
-    border-radius: 20px; overflow: hidden; position: relative;
-    aspect-ratio: 4/3; cursor: pointer;
-    box-shadow: 0 8px 32px rgba(0,0,0,.1);
-    transition: transform .3s, box-shadow .3s;
-  }
+  .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; align-items: start; }
+  .portfolio-card-video { grid-column: 1; grid-row: 1 / 3; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.15); position: relative; }
+  .gdrive-video-card { display: block; width: 100%; aspect-ratio: 9/16; text-decoration: none; position: relative; overflow: hidden; border-radius: 20px; }
+  .gdrive-thumb { width: 100%; height: 100%; background: linear-gradient(135deg, #9B30C8 0%, #3EC6C6 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; transition: filter .3s; }
+  .gdrive-video-card:hover .gdrive-thumb { filter: brightness(1.12); }
+  .gdrive-play { width: 70px; height: 70px; border-radius: 50%; background: rgba(255,255,255,.2); backdrop-filter: blur(6px); border: 3px solid rgba(255,255,255,.6); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #fff; transition: transform .3s, background .3s; }
+  .gdrive-video-card:hover .gdrive-play { transform: scale(1.1); background: rgba(255,255,255,.35); }
+  .gdrive-label { color: #fff; font-weight: 800; font-size: 1rem; letter-spacing: .5px; }
+  .portfolio-badge { position: absolute; top: 1rem; left: 1rem; z-index: 2; background: rgba(255,255,255,.95); border-radius: 50px; padding: .25rem .8rem; font-size: .75rem; font-weight: 800; color: var(--purple); }
+  .portfolio-card { border-radius: 20px; overflow: hidden; position: relative; aspect-ratio: 4/3; cursor: pointer; box-shadow: 0 8px 32px rgba(0,0,0,.1); transition: transform .3s, box-shadow .3s; }
   .portfolio-card:hover { transform: scale(1.03); box-shadow: 0 20px 48px rgba(0,0,0,.18); }
-  .portfolio-card:first-child { grid-column: span 2; aspect-ratio: 16/9; }
-  .portfolio-thumb {
-    width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3rem; position: relative;
-  }
-  .portfolio-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(26,26,46,.85) 0%, transparent 60%);
-    opacity: 0; transition: opacity .3s;
-    display: flex; align-items: flex-end; padding: 1.5rem;
-  }
+  .portfolio-thumb { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+  .portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,.85) 0%, transparent 60%); opacity: 0; transition: opacity .3s; display: flex; align-items: flex-end; padding: 1.5rem; }
   .portfolio-card:hover .portfolio-overlay { opacity: 1; }
   .portfolio-info h4 { color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: .25rem; }
   .portfolio-info span { color: rgba(255,255,255,.7); font-size: .8rem; font-weight: 600; }
-  .portfolio-badge {
-    position: absolute; top: 1rem; left: 1rem;
-    background: rgba(255,255,255,.95); border-radius: 50px;
-    padding: .25rem .8rem; font-size: .75rem; font-weight: 800; color: var(--purple);
-  }
 
-  /* ── TESTIMONIALS ── */
+  /* DEPOIMENTOS */
   #depoimentos { background: var(--dark); color: #fff; text-align: center; }
   #depoimentos .section-title { color: #fff; }
   #depoimentos .section-sub { color: rgba(255,255,255,.6); margin: 0 auto 3.5rem; }
   .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; text-align: left; }
-  .testimonial-card {
-    background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.1);
-    border-radius: 20px; padding: 2rem;
-    transition: border-color .3s, background .3s;
-  }
+  .testimonial-card { background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.1); border-radius: 20px; padding: 2rem; transition: border-color .3s, background .3s; }
   .testimonial-card:hover { border-color: var(--purple); background: rgba(155,48,200,.08); }
   .stars { color: var(--yellow); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
   .testimonial-text { color: rgba(255,255,255,.8); line-height: 1.7; font-size: .95rem; margin-bottom: 1.5rem; font-style: italic; }
   .testimonial-author { display: flex; align-items: center; gap: .8rem; }
-  .author-avatar {
-    width: 42px; height: 42px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; font-weight: 900; color: #fff;
-  }
+  .author-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 900; color: #fff; }
   .author-name { font-weight: 800; font-size: .9rem; color: #fff; }
   .author-role { font-size: .78rem; color: rgba(255,255,255,.5); margin-top: .15rem; }
 
-  /* ── CONTACT ── */
+  /* CONTATO */
   #contato { background: var(--light); }
-  .contact-wrapper {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
-  }
-  .contact-form {
-    background: #fff; border-radius: 28px; padding: 2.5rem;
-    box-shadow: 0 8px 40px rgba(0,0,0,.07);
-  }
+  .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-form { background: #fff; border-radius: 28px; padding: 2.5rem; box-shadow: 0 8px 40px rgba(0,0,0,.07); }
   .form-group { margin-bottom: 1.3rem; }
   .form-group label { display: block; font-weight: 700; font-size: .88rem; margin-bottom: .5rem; color: #444; }
-  .form-group input, .form-group textarea, .form-group select {
-    width: 100%; padding: .85rem 1.1rem;
-    border: 2px solid #eee; border-radius: 12px;
-    font-family: 'Nunito', sans-serif; font-size: .95rem; color: var(--dark);
-    transition: border-color .2s; outline: none; background: #fafafa;
-  }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: .85rem 1.1rem; border: 2px solid #eee; border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: .95rem; color: var(--dark); transition: border-color .2s; outline: none; background: #fafafa; }
   .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--purple); background: #fff; }
   .form-group textarea { resize: vertical; min-height: 120px; }
-  .form-submit {
-    width: 100%; background: var(--purple); color: #fff;
-    border: none; border-radius: 50px; padding: 1rem;
-    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem;
-    cursor: pointer; transition: all .25s;
-    box-shadow: 0 6px 24px rgba(155,48,200,.35);
-  }
+  .form-submit { width: 100%; background: var(--purple); color: #fff; border: none; border-radius: 50px; padding: 1rem; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem; cursor: pointer; transition: all .25s; box-shadow: 0 6px 24px rgba(155,48,200,.35); }
   .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(155,48,200,.5); }
   .contact-info { padding-top: 1rem; }
-  .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem; }
   .contact-info p { color: #666; line-height: 1.7; margin-bottom: 2rem; }
-  .contact-item {
-    display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 1.2rem; padding: 1rem 1.3rem;
-    background: #fff; border-radius: 14px;
-    box-shadow: 0 2px 12px rgba(0,0,0,.05);
-    text-decoration: none; color: var(--dark);
-    transition: all .2s;
-  }
+  .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; padding: 1rem 1.3rem; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,.05); text-decoration: none; color: var(--dark); transition: all .2s; }
   .contact-item:hover { transform: translateX(6px); box-shadow: 0 6px 24px rgba(155,48,200,.12); }
-  .contact-item-icon {
-    width: 44px; height: 44px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;
-  }
+  .contact-item-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
   .contact-item-label { font-size: .78rem; color: #999; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
   .contact-item-value { font-weight: 700; font-size: .95rem; }
-  .wpp-btn {
-    display: flex; align-items: center; justify-content: center; gap: .7rem;
-    background: #25D366; color: #fff; padding: 1rem 2rem;
-    border-radius: 50px; font-weight: 800; font-size: 1rem;
-    text-decoration: none; margin-top: 1.5rem;
-    transition: all .25s; box-shadow: 0 6px 24px rgba(37,211,102,.35);
-  }
+  .wpp-btn { display: flex; align-items: center; justify-content: center; gap: .7rem; background: #25D366; color: #fff; padding: 1rem 2rem; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; margin-top: 1.5rem; transition: all .25s; box-shadow: 0 6px 24px rgba(37,211,102,.35); }
   .wpp-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,.45); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--dark); color: rgba(255,255,255,.5);
-    text-align: center; padding: 2.5rem 6%;
-    font-size: .88rem;
-  }
+  /* FOOTER */
+  footer { background: var(--dark); color: rgba(255,255,255,.5); text-align: center; padding: 2.5rem 6%; font-size: .88rem; }
   footer strong { color: var(--purple); }
 
-  /* ── ANIMATIONS ── */
+  /* ANIMATIONS */
   .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     #sobre { grid-template-columns: 1fr; gap: 3rem; }
     .portfolio-grid { grid-template-columns: 1fr 1fr; }
-    .portfolio-card:first-child { grid-column: span 2; }
+    .portfolio-card-video { grid-column: 1 / 3; grid-row: auto; }
     .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
     .nav-links { display: none; }
-    .hero-stats { gap: 1.5rem; }
   }
   @media (max-width: 600px) {
     .portfolio-grid { grid-template-columns: 1fr; }
-    .portfolio-card:first-child { grid-column: span 1; aspect-ratio: 4/3; }
+    .portfolio-card-video { grid-column: 1; }
     section { padding: 4rem 5%; }
   }
 </style>
@@ -351,30 +189,17 @@
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
   <div class="hero-content">
-    <div class="hero-tag">🎬 Audiovisual & Estratégia Digital</div>
-    <h1 class="hero-title">
-      Conte sua história<br>de um jeito <em>incrível</em>
-    </h1>
-    <p class="hero-sub">
-      Criamos conteúdo audiovisual e estratégias digitais que conectam marcas a pessoas de verdade. Com criatividade, dados e muito carinho pelo que fazemos.
-    </p>
+    <div class="hero-tag">🎬 Audiovisual &amp; Estratégia Digital</div>
+    <h1 class="hero-title">Conte sua história<br>de um jeito <em>incrível</em></h1>
+    <p class="hero-sub">Criamos conteúdo audiovisual e estratégias digitais que conectam marcas a pessoas de verdade. Com criatividade, dados e muito carinho pelo que fazemos.</p>
     <div class="hero-btns">
       <a href="#portfolio" class="btn-primary">Ver portfólio</a>
       <a href="#contato" class="btn-secondary">Vamos conversar?</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="stat-num">+80</div>
-        <div class="stat-label">Projetos entregues</div>
-      </div>
-      <div>
-        <div class="stat-num">+40</div>
-        <div class="stat-label">Clientes felizes</div>
-      </div>
-      <div>
-        <div class="stat-num">5★</div>
-        <div class="stat-label">Avaliação média</div>
-      </div>
+      <div><div class="stat-num">+80</div><div class="stat-label">Projetos entregues</div></div>
+      <div><div class="stat-num">+40</div><div class="stat-label">Clientes felizes</div></div>
+      <div><div class="stat-num">5&#9733;</div><div class="stat-label">Avaliação média</div></div>
     </div>
   </div>
 </section>
@@ -384,9 +209,7 @@
   <div class="fade-up">
     <div class="section-tag">Quem somos</div>
     <h2 class="section-title">Um estúdio feito com<br>alma e propósito</h2>
-    <p class="section-sub">
-      O Estúdio Hannah nasceu da paixão por contar histórias que ficam na memória. Combinamos produção audiovisual de qualidade com estratégia digital inteligente para transformar marcas em experiências.
-    </p>
+    <p class="section-sub">O Estúdio Hannah nasceu da paixão por contar histórias que ficam na memória. Combinamos produção audiovisual de qualidade com estratégia digital inteligente para transformar marcas em experiências.</p>
     <div class="about-pills">
       <span class="pill">🎥 Produção de Vídeo</span>
       <span class="pill">📱 Social Media</span>
@@ -396,7 +219,7 @@
       <span class="pill">📈 Growth</span>
     </div>
   </div>
-  <div class="about-visual fade-up">
+  <div class="fade-up">
     <div class="about-card">
       <div class="about-card-icon">🐱✨</div>
       <div class="about-card-text">Criatividade sem limites</div>
@@ -437,7 +260,7 @@
     </div>
     <div class="service-card fade-up">
       <div class="service-icon" style="background:#fffae6">✍️</div>
-      <h3>Copywriting & Conteúdo</h3>
+      <h3>Copywriting &amp; Conteúdo</h3>
       <p>Textos que vendem, engajam e conectam. Legendas, roteiros, blogs e conteúdo estratégico para toda a sua presença digital.</p>
     </div>
     <div class="service-card fade-up">
@@ -463,56 +286,41 @@
     </div>
   </div>
   <div class="portfolio-grid fade-up">
-    <div class="portfolio-card">
-      <div class="portfolio-thumb" style="background:linear-gradient(135deg,#9B30C8,#3EC6C6)">🎬</div>
+
+    <div class="portfolio-card-video">
       <span class="portfolio-badge">Audiovisual</span>
-      <div class="portfolio-overlay">
-        <div class="portfolio-info">
-          <h4>Documentário de Marca – Café Aroma</h4>
-          <span>Produção completa · 2024</span>
+      <a href="https://drive.google.com/file/d/1X1tEgCyLOdOoUKYWBQWEt-v4xEVN4DWm/view?usp=sharing" target="_blank" class="gdrive-video-card">
+        <div class="gdrive-thumb">
+          <div class="gdrive-play">&#9654;</div>
+          <div class="gdrive-label">Assistir vídeo</div>
         </div>
-      </div>
+      </a>
     </div>
+
     <div class="portfolio-card">
       <div class="portfolio-thumb" style="background:linear-gradient(135deg,#5BBB4A,#FFD93D)">📱</div>
       <span class="portfolio-badge">Social Media</span>
-      <div class="portfolio-overlay">
-        <div class="portfolio-info">
-          <h4>Gestão de Redes – Clínica Bem Estar</h4>
-          <span>6 meses de conteúdo · 2024</span>
-        </div>
-      </div>
+      <div class="portfolio-overlay"><div class="portfolio-info"><h4>Gestão de Redes – Clínica Bem Estar</h4><span>6 meses de conteúdo · 2024</span></div></div>
     </div>
+
     <div class="portfolio-card">
       <div class="portfolio-thumb" style="background:linear-gradient(135deg,#E040A0,#9B30C8)">🎯</div>
       <span class="portfolio-badge">Estratégia</span>
-      <div class="portfolio-overlay">
-        <div class="portfolio-info">
-          <h4>Reposicionamento Digital – Loja Viva</h4>
-          <span>Estratégia & Conteúdo · 2024</span>
-        </div>
-      </div>
+      <div class="portfolio-overlay"><div class="portfolio-info"><h4>Reposicionamento Digital – Loja Viva</h4><span>Estratégia &amp; Conteúdo · 2024</span></div></div>
     </div>
+
     <div class="portfolio-card">
       <div class="portfolio-thumb" style="background:linear-gradient(135deg,#3EC6C6,#5BBB4A)">✂️</div>
       <span class="portfolio-badge">Audiovisual</span>
-      <div class="portfolio-overlay">
-        <div class="portfolio-info">
-          <h4>Reels Virais – Escola de Dança</h4>
-          <span>12 reels · +500k views · 2024</span>
-        </div>
-      </div>
+      <div class="portfolio-overlay"><div class="portfolio-info"><h4>Reels Virais – Escola de Dança</h4><span>12 reels · +500k views · 2024</span></div></div>
     </div>
+
     <div class="portfolio-card">
       <div class="portfolio-thumb" style="background:linear-gradient(135deg,#FFD93D,#E040A0)">🚀</div>
       <span class="portfolio-badge">Estratégia</span>
-      <div class="portfolio-overlay">
-        <div class="portfolio-info">
-          <h4>Lançamento Digital – Produto X</h4>
-          <span>Campanha completa · 2023</span>
-        </div>
-      </div>
+      <div class="portfolio-overlay"><div class="portfolio-info"><h4>Lançamento Digital – Produto X</h4><span>Campanha completa · 2023</span></div></div>
     </div>
+
   </div>
 </section>
 
@@ -523,36 +331,27 @@
   <p class="section-sub fade-up">Nada melhor do que ouvir quem viveu a experiência Hannah.</p>
   <div class="testimonials-grid fade-up">
     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <p class="testimonial-text">"O estúdio Hannah transformou completamente a nossa presença digital. Os vídeos ficaram lindos e o engajamento triplicou em 3 meses!"</p>
       <div class="testimonial-author">
-        <div class="author-avatar" style="background:linear-gradient(135deg,var(--purple),var(--cyan))">M</div>
-        <div>
-          <div class="author-name">Marina Costa</div>
-          <div class="author-role">CEO – Café Aroma</div>
-        </div>
+        <div class="author-avatar" style="background:linear-gradient(135deg,#9B30C8,#3EC6C6)">M</div>
+        <div><div class="author-name">Marina Costa</div><div class="author-role">CEO – Café Aroma</div></div>
       </div>
     </div>
     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <p class="testimonial-text">"Profissionalismo, criatividade e muita atenção. A Hannah entendeu nossa marca de verdade e entregou muito além do esperado."</p>
       <div class="testimonial-author">
-        <div class="author-avatar" style="background:linear-gradient(135deg,var(--green),var(--yellow))">R</div>
-        <div>
-          <div class="author-name">Rafael Mendes</div>
-          <div class="author-role">Diretor – Clínica Bem Estar</div>
-        </div>
+        <div class="author-avatar" style="background:linear-gradient(135deg,#5BBB4A,#FFD93D)">R</div>
+        <div><div class="author-name">Rafael Mendes</div><div class="author-role">Diretor – Clínica Bem Estar</div></div>
       </div>
     </div>
     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       <p class="testimonial-text">"A estratégia digital que o estúdio criou para nós foi certeira. Em 4 meses já tínhamos resultados concretos em vendas. Super recomendo!"</p>
       <div class="testimonial-author">
-        <div class="author-avatar" style="background:linear-gradient(135deg,var(--pink),var(--purple))">J</div>
-        <div>
-          <div class="author-name">Juliana Lopes</div>
-          <div class="author-role">Proprietária – Loja Viva</div>
-        </div>
+        <div class="author-avatar" style="background:linear-gradient(135deg,#E040A0,#9B30C8)">J</div>
+        <div><div class="author-name">Juliana Lopes</div><div class="author-role">Proprietária – Loja Viva</div></div>
       </div>
     </div>
   </div>
@@ -565,41 +364,24 @@
       <div class="section-tag">Vamos trabalhar juntos?</div>
       <h2 class="section-title">Entre em<br>contato</h2>
       <p>Conta pra gente sobre o seu projeto! Adoramos ouvir novas ideias e ajudar marcas a crescer no digital.</p>
-      <a href="https://wa.me/5500000000000" class="contact-item" target="_blank">
+      <a href="https://wa.me/595983394880" class="contact-item" target="_blank">
         <div class="contact-item-icon" style="background:#e6faf0">💬</div>
-        <div>
-          <div class="contact-item-label">WhatsApp</div>
-          <div class="contact-item-value">(00) 00000-0000</div>
-        </div>
+        <div><div class="contact-item-label">WhatsApp</div><div class="contact-item-value">+595 983 394880</div></div>
       </a>
-      <a href="mailto:contato@estudiovhannah.com.br" class="contact-item">
+      <a href="mailto:estudiohannahinfo@gmail.com" class="contact-item">
         <div class="contact-item-icon" style="background:#f0e6fa">📧</div>
-        <div>
-          <div class="contact-item-label">E-mail</div>
-          <div class="contact-item-value">contato@estudihannah.com.br</div>
-        </div>
+        <div><div class="contact-item-label">E-mail</div><div class="contact-item-value">estudiohannahinfo@gmail.com</div></div>
       </a>
       <a href="https://instagram.com/estudihannah" class="contact-item" target="_blank">
         <div class="contact-item-icon" style="background:#fdf0f8">📸</div>
-        <div>
-          <div class="contact-item-label">Instagram</div>
-          <div class="contact-item-value">@estudihannah</div>
-        </div>
+        <div><div class="contact-item-label">Instagram</div><div class="contact-item-value">@estudihannah</div></div>
       </a>
-      <a href="https://wa.me/5500000000000?text=Olá! Vim pelo site e quero saber mais sobre os serviços do Estúdio Hannah 🎬" class="wpp-btn" target="_blank">
-        💬 Chamar no WhatsApp
-      </a>
+      <a href="https://wa.me/595983394880" class="wpp-btn" target="_blank">💬 Chamar no WhatsApp</a>
     </div>
     <div class="contact-form fade-up">
       <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1.5rem">Manda uma mensagem</h3>
-      <div class="form-group">
-        <label>Seu nome</label>
-        <input type="text" placeholder="Como podemos te chamar?">
-      </div>
-      <div class="form-group">
-        <label>E-mail</label>
-        <input type="email" placeholder="seu@email.com">
-      </div>
+      <div class="form-group"><label>Seu nome</label><input type="text" placeholder="Como podemos te chamar?"></div>
+      <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com"></div>
       <div class="form-group">
         <label>Serviço de interesse</label>
         <select>
@@ -612,22 +394,18 @@
           <option>Pacote Completo</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>Mensagem</label>
-        <textarea placeholder="Fala sobre seu projeto, marca ou dúvida..."></textarea>
-      </div>
-      <button class="form-submit">Enviar mensagem 🚀</button>
+      <div class="form-group"><label>Mensagem</label><textarea placeholder="Fala sobre seu projeto, marca ou dúvida..."></textarea></div>
+      <button class="form-submit" id="submitBtn">Enviar mensagem 🚀</button>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 <strong>Estúdio Hannah</strong> · Audiovisual & Estratégia Digital · Feito com ❤️</p>
+  <p>&#169; 2026 <strong>Estúdio Hannah</strong> &middot; Audiovisual &amp; Estratégia Digital &middot; Feito com &#10084;&#65039;</p>
 </footer>
 
 <script>
-  // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -637,7 +415,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Portfolio filters
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -645,10 +422,9 @@
     });
   });
 
-  // Form submit
-  document.querySelector('.form-submit').addEventListener('click', () => {
-    const btn = document.querySelector('.form-submit');
-    btn.textContent = '✅ Mensagem enviada!';
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Mensagem enviada! ✅';
     btn.style.background = '#5BBB4A';
     setTimeout(() => {
       btn.textContent = 'Enviar mensagem 🚀';
