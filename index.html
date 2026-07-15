@@ -115,6 +115,9 @@
   height: 100%;
   border: none;
 }
+.portfolio-card-embed { border-radius: 20px; overflow: hidden; position: relative; aspect-ratio: 4/3; cursor: pointer; box-shadow: 0 8px 32px rgba(0,0,0,.1); transition: transform .3s, box-shadow .3s; background: #000; }
+.portfolio-card-embed:hover { transform: scale(1.03); box-shadow: 0 20px 48px rgba(0,0,0,.18); }
+.portfolio-card-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
   .portfolio-badge { position: absolute; top: 1rem; left: 1rem; z-index: 2; background: rgba(255,255,255,.95); border-radius: 50px; padding: .25rem .8rem; font-size: .75rem; font-weight: 800; color: var(--purple); }
   .portfolio-card { border-radius: 20px; overflow: hidden; position: relative; aspect-ratio: 4/3; cursor: pointer; box-shadow: 0 8px 32px rgba(0,0,0,.1); transition: transform .3s, box-shadow .3s; }
   .portfolio-card:hover { transform: scale(1.03); box-shadow: 0 20px 48px rgba(0,0,0,.18); }
@@ -305,8 +308,19 @@
   </div>
   <div class="portfolio-grid fade-up">
 
-    <div class="portfolio-card-video">
-  <span class="portfolio-badge">Audiovisual</span>
+    <div class="portfolio-card-embed">
+  <span class="portfolio-badge">Color</span>
+  <iframe
+    src="https://www.youtube.com/embed/ybn7-LZhcIE"
+    title="Color Grading - Antes e Depois"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div class="portfolio-card-video">
+  <span class="portfolio-badge">Edição</span>
   <div class="youtube-embed">
     <iframe
       src="https://www.youtube.com/embed/ON4UDrbgDqA"
@@ -328,12 +342,6 @@
       <div class="portfolio-thumb" style="background:linear-gradient(135deg,#E040A0,#9B30C8)">&#127919;</div>
       <span class="portfolio-badge">Estrategia</span>
       <div class="portfolio-overlay"><div class="portfolio-info"><h4>Reposicionamento Digital - Loja Viva</h4><span>Estrategia e Conteudo - 2024</span></div></div>
-    </div>
-
-    <div class="portfolio-card">
-      <div class="portfolio-thumb" style="background:linear-gradient(135deg,#3EC6C6,#5BBB4A)">&#9986;&#65039;</div>
-      <span class="portfolio-badge">Audiovisual</span>
-      <div class="portfolio-overlay"><div class="portfolio-info"><h4>Reels Virais - Escola de Danca</h4><span>12 reels - mais de 500k views - 2024</span></div></div>
     </div>
 
     <div class="portfolio-card">
