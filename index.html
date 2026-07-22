@@ -137,6 +137,7 @@
   #depoimentos { background: var(--dark); color: #fff; text-align: center; }
   #depoimentos .section-title { color: #fff; }
   #depoimentos .section-sub { color: rgba(255,255,255,.6); margin: 0 auto 3.5rem; }
+  #depoimentos .section-disclaimer { color: rgba(255,255,255,.6); font-size: .95rem; font-style: italic; margin: 0 auto 3.5rem;}
   .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; text-align: left; }
   .testimonial-card { background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.1); border-radius: 20px; padding: 2rem; transition: border-color .3s, background .3s; }
   .testimonial-card:hover { border-color: var(--purple); background: rgba(155,48,200,.08); }
@@ -204,10 +205,10 @@
   <div class="nav-logo">estudio <span>Hannah</span></div>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#servicos">Serviços</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#depoimentos">Depoimentos</a></li>
-    <li><a href="#contato">Contato</a></li>
+    <!-- <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#contato">Contato</a></li> -->
   </ul>
   <a href="#contato" class="nav-cta">Fale conosco</a>
 </nav>
@@ -221,16 +222,19 @@
   <div class="hero-content">
     <div class="hero-tag">Audiovisual e Estratégia Digital</div>
     <h1 class="hero-title">Conte sua história<br>de um jeito <em>incrível</em></h1>
-    <p class="hero-sub">Criamos conteúdo audiovisual e estratégias digitais que conectam marcas a pessoas de verdade, com criatividade, dados e muito carinho pelo que fazemos.</p>
+    <p class="hero-sub">
+      Criamos conteúdo audiovisual e estratégias digitais que conectam marcas a pessoas de verdade, com criatividade, dados e muito carinho pelo que fazemos.<br>
+      Vídeos editados. Carrosséis prontos. Uma marca consistente.
+      Tudo o que sua marca precisa para ser lembrada, desejada e escolhida.</p>
     <div class="hero-btns">
       <a href="#portfolio" class="btn-primary">Ver portfólio</a>
       <a href="#contato" class="btn-secondary">Vamos conversar?</a>
     </div>
-    <div class="hero-stats">
+    <!-- <div class="hero-stats">
       <div><div class="stat-num">+80</div><div class="stat-label">Projetos entregues</div></div>
       <div><div class="stat-num">+40</div><div class="stat-label">Clientes felizes</div></div>
       <div><div class="stat-num">5 estrelas</div><div class="stat-label">Avaliação média</div></div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -304,16 +308,26 @@
 <!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="portfolio-header fade-up">
+
     <div>
       <div class="section-tag">Nosso trabalho</div>
       <h2 class="section-title">Portfólio</h2>
+      <p class="section-sub">
+          Edição de vídeo, color grading profissional e conteúdo vertical para
+          YouTube Shorts, Reels e TikTok.
+        </p>
+        <p class="section-disclaimer">
+          Disclaimer: Os vídeos que serão apresentados a seguir foram editados exclusivamente para fins demonstrativos. Todo o material original pertence aos seus respectivos criadores.
+        </p>
+
     </div>
-    <div class="portfolio-filters">
+
+    <!-- <div class="portfolio-filters">
       <button class="filter-btn active">Color</button>
       <button class="filter-btn">Short</button>
       <button class="filter-btn">Social Media</button>
       <button class="filter-btn">Estratégia</button>
-    </div>
+    </div> -->
   </div>
   <div class="portfolio-grid fade-up">
 
@@ -386,17 +400,6 @@
       </iframe>
     </div>
 
-    <!-- <div class="portfolio-card-short">
-      <span class="portfolio-badge">Short</span>
-      <iframe
-        src="https://www.youtube.com/embed/nUORDUa8og8?rel=0&modestbranding=1&iv_load_policy=3"
-        title="Short YouTube"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div> -->
-
     <div class="portfolio-card-short">
       <span class="portfolio-badge">Short</span>
       <iframe
@@ -440,13 +443,25 @@
         allowfullscreen>
       </iframe>
     </div>
+
+    <div class="portfolio-card-short">
+      <span class="portfolio-badge">Short</span>
+      <iframe
+        src="https://www.youtube.com/shorts/H-IUZ3Jy6Zw?rel=0&modestbranding=1&iv_load_policy=3"
+        title="Short YouTube"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
   </div>
 
   </div>
 </section>
 
 <!-- DEPOIMENTOS -->
-<section id="depoimentos">
+<!-- <section id="depoimentos">
   <div class="section-tag" style="color:var(--cyan)">O que dizem de nos</div>
   <h2 class="section-title fade-up">Depoimentos</h2>
   <p class="section-sub fade-up">Nada melhor do que ouvir quem viveu a experiencia Hannah.</p>
@@ -476,7 +491,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- CONTATO -->
 <section id="contato">
