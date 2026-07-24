@@ -133,6 +133,152 @@
   .portfolio-info span { color: rgba(255,255,255,.7); font-size: .8rem; font-weight: 600; }
   .portfolio-card .gdrive-video-card { position: absolute; inset: 0; aspect-ratio: auto; }
 
+
+  /* ===================================PORTFOLIO ALTERNATIVO=================================== */
+  /* ===================== PORTFOLIO ===================== */
+  #portfolio { background: #0f0f1a; padding-bottom: 7rem; }
+  #portfolio .section-tag { color: var(--cyan); }
+  #portfolio .section-title { color: #fff; }
+  #portfolio .section-sub { color: rgba(255,255,255,.55); }
+  .section-disclaimer { font-size: .85rem; color: rgba(255,255,255,.35); font-style: italic; margin-top: .75rem; max-width: 620px; line-height: 1.6; }
+
+  .portfolio-intro { margin-bottom: 3rem; }
+
+  /* CATEGORY TABS */
+  .cat-tabs { display: flex; gap: 0; border-bottom: 2px solid rgba(255,255,255,.08); margin-bottom: 3.5rem; overflow-x: auto; }
+  .cat-tab {
+    padding: 1rem 2rem; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .95rem;
+    background: transparent; border: none; color: rgba(255,255,255,.4);
+    cursor: pointer; transition: all .25s; white-space: nowrap;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .cat-tab:hover { color: rgba(255,255,255,.8); }
+  .cat-tab.active { color: #fff; border-bottom-color: var(--purple); }
+  .cat-tab .tab-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--purple); opacity: 0; transition: opacity .25s; }
+  .cat-tab.active .tab-dot { opacity: 1; }
+
+  /* PANEL */
+  .cat-panel { display: none; }
+  .cat-panel.active { display: block; }
+
+  /* ---- AUDIOVISUAL PANEL ---- */
+  /* Sub-tabs inside Audiovisual */
+  .sub-tabs { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .sub-tab {
+    padding: .5rem 1.3rem; border-radius: 50px; border: 2px solid rgba(255,255,255,.12);
+    background: transparent; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .85rem;
+    cursor: pointer; color: rgba(255,255,255,.5); transition: all .22s;
+  }
+  .sub-tab:hover { border-color: rgba(155,48,200,.5); color: #fff; }
+  .sub-tab.active { background: var(--purple); border-color: var(--purple); color: #fff; box-shadow: 0 4px 18px rgba(155,48,200,.4); }
+
+  .sub-panel { display: none; }
+  .sub-panel.active { display: block; }
+
+  /* Edicao placeholder grid */
+  .edicao-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .edicao-card {
+    border-radius: 20px; overflow: hidden; position: relative;
+    aspect-ratio: 16/9; cursor: pointer;
+    background: rgba(255,255,255,.04);
+    border: 2px dashed rgba(155,48,200,.25);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .75rem;
+    transition: all .3s;
+  }
+  .edicao-card:hover { border-color: var(--purple); background: rgba(155,48,200,.08); transform: translateY(-4px); }
+  .edicao-card .ph-icon { font-size: 2.5rem; opacity: .5; }
+  .edicao-card .ph-label { font-size: .8rem; font-weight: 700; color: rgba(255,255,255,.3); text-transform: uppercase; letter-spacing: 1px; }
+  .edicao-card .ph-action { font-size: .75rem; color: var(--purple); font-weight: 800; opacity: 0; transition: opacity .25s; }
+  .edicao-card:hover .ph-action { opacity: 1; }
+
+  /* Color Grading embed */
+  .color-embed-wrap { max-width: 960px; margin: 0 auto; }
+  .color-embed {
+    position: relative; width: 100%; aspect-ratio: 16/9;
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 12px 60px rgba(0,0,0,.5);
+    border: 1px solid rgba(155,48,200,.2);
+  }
+  .color-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
+  /* Shorts grid */
+  .shorts-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; }
+  .short-card {
+    position: relative; aspect-ratio: 9/16; border-radius: 16px;
+    overflow: hidden; background: #000;
+    box-shadow: 0 8px 28px rgba(0,0,0,.4);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .short-card:hover { transform: scale(1.04); box-shadow: 0 16px 48px rgba(0,0,0,.6); }
+  .short-card iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+  .short-badge {
+    position: absolute; top: .7rem; left: .7rem; z-index: 2;
+    background: rgba(155,48,200,.85); backdrop-filter: blur(6px);
+    color: #fff; border-radius: 50px; padding: .2rem .7rem;
+    font-size: .7rem; font-weight: 800; letter-spacing: .5px;
+  }
+
+  /* ---- DESIGN & BRANDING PANEL ---- */
+  .design-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .design-card {
+    border-radius: 20px; overflow: hidden; position: relative;
+    background: rgba(255,255,255,.04);
+    border: 1.5px solid rgba(255,255,255,.06);
+    transition: all .3s; cursor: pointer;
+  }
+  .design-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.4); border-color: rgba(155,48,200,.35); }
+  .design-card-img {
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem; position: relative; overflow: hidden;
+  }
+  .design-card-img .ph-bg {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+  }
+  .design-card-img .ph-lines { width: 60%; }
+  .design-card-img .ph-line { height: 3px; border-radius: 2px; background: rgba(255,255,255,.12); margin-bottom: .5rem; }
+  .design-card-img .ph-line:nth-child(1) { width: 100%; }
+  .design-card-img .ph-line:nth-child(2) { width: 75%; }
+  .design-card-img .ph-line:nth-child(3) { width: 50%; }
+  .design-card-hover {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(155,48,200,.75), rgba(62,198,198,.55));
+    opacity: 0; transition: opacity .3s;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: .5rem;
+  }
+  .design-card:hover .design-card-hover { opacity: 1; }
+  .design-card-hover span { color: #fff; font-weight: 800; font-size: .9rem; letter-spacing: .5px; }
+  .design-card-body { padding: 1.2rem 1.4rem 1.5rem; }
+  .design-card-tag { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--purple); margin-bottom: .4rem; }
+  .design-card-title { font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.3; }
+  .design-card-sub { font-size: .82rem; color: rgba(255,255,255,.4); margin-top: .25rem; }
+
+  /* Featured design card (spans 2 cols) */
+  .design-card.featured { grid-column: span 2; }
+  .design-card.featured .design-card-img { aspect-ratio: 2/1; }
+
+  /* ---- ESTRATEGIA PANEL ---- */
+  .estrategia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .estrategia-card {
+    border-radius: 24px; padding: 2.5rem;
+    background: rgba(255,255,255,.04);
+    border: 1.5px solid rgba(255,255,255,.06);
+    transition: all .3s; position: relative; overflow: hidden;
+  }
+  .estrategia-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--purple), var(--cyan)); opacity: 0; transition: opacity .3s; }
+  .estrategia-card:hover { transform: translateY(-5px); border-color: rgba(155,48,200,.25); box-shadow: 0 20px 50px rgba(0,0,0,.3); }
+  .estrategia-card:hover::before { opacity: 1; }
+  .est-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.4rem; }
+  .estrategia-card h3 { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: .6rem; }
+  .estrategia-card p { font-size: .92rem; color: rgba(255,255,255,.5); line-height: 1.65; }
+  .est-coming { display: inline-block; margin-top: 1.2rem; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--cyan); border: 1.5px solid rgba(62,198,198,.3); border-radius: 50px; padding: .25rem .8rem; }
+
+  /* ===================================PORTFOLIO ALTERNATIVO=================================== */
+
   /* DEPOIMENTOS */
   #depoimentos { background: var(--dark); color: #fff; text-align: center; }
   #depoimentos .section-title { color: #fff; }
@@ -306,7 +452,7 @@
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio">
+<!-- <section id="portfolio">
   <div class="portfolio-header fade-up">
 
     <div>
@@ -320,15 +466,17 @@
           Disclaimer: Os vídeos que serão apresentados a seguir foram editados exclusivamente para fins demonstrativos. Todo o material original pertence aos seus respectivos criadores.
         </p>
 
-    </div>
+    </div> -->
 
+    <!-- Bloco Comentado MESMO -->
     <!-- <div class="portfolio-filters">
       <button class="filter-btn active">Color</button>
       <button class="filter-btn">Short</button>
       <button class="filter-btn">Social Media</button>
       <button class="filter-btn">Estratégia</button>
     </div> -->
-  </div>
+
+  <!-- </div>
   <div class="portfolio-grid fade-up">
 
     <div class="portfolio-card-embed">
@@ -458,6 +606,237 @@
   </div>
 
   </div>
+</section> -->
+
+<!-- PORTFOLIO ALTERNATIVO -->
+<section id="portfolio">
+
+  <div class="portfolio-intro fade-up">
+    <div class="section-tag">Nosso trabalho</div>
+    <h2 class="section-title">Portfolio</h2>
+    <p class="section-sub">Edicao de video, color grading profissional e conteudo vertical para YouTube Shorts, Reels e TikTok.</p>
+    <p class="section-disclaimer">Disclaimer: Os materiais apresentados foram editados exclusivamente para fins demonstrativos. Todo o material original pertence aos seus respectivos criadores.</p>
+  </div>
+
+  <!-- CATEGORY TABS -->
+  <div class="cat-tabs fade-up">
+    <button class="cat-tab active" data-cat="audiovisual">
+      <span class="tab-dot"></span>&#127909; Audiovisual
+    </button>
+    <button class="cat-tab" data-cat="design">
+      <span class="tab-dot"></span>&#127912; Design e Branding
+    </button>
+    <button class="cat-tab" data-cat="estrategia">
+      <span class="tab-dot"></span>&#128202; Estrategia Digital
+    </button>
+  </div>
+
+  <!-- ===== AUDIOVISUAL PANEL ===== -->
+  <div class="cat-panel active" id="cat-audiovisual">
+
+    <div class="sub-tabs">
+      <button class="sub-tab active" data-sub="edicao">&#9999;&#65039; Edicao</button>
+      <button class="sub-tab" data-sub="color">&#127752; Color Grading</button>
+      <button class="sub-tab" data-sub="shorts">&#9654; Shorts</button>
+    </div>
+
+    <!-- Edicao -->
+    <div class="sub-panel active" id="sub-edicao">
+      <div class="portfolio-card-embed">
+      <span class="portfolio-badge">Edição</span>
+        <iframe
+          src="https://www.youtube.com/embed/F03jG--pr4s?rel=0&modestbranding=1&iv_load_policy=3"
+          title="Placeholder"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Color Grading -->
+    <div class="sub-panel" id="sub-color">
+        <div class="portfolio-card-embed">
+        <span class="portfolio-badge">Color</span>
+          <iframe
+            src="https://www.youtube.com/embed/ybn7-LZhcIE?rel=0&modestbranding=1&iv_load_policy=3"
+            title="Color Grading - Antes e Depois"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+    </div>
+
+    <!-- Shorts -->
+    <div class="sub-panel" id="sub-shorts">
+      <div class="shorts-grid">
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/IEoqTKchMcM?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/ceI8gSXsbkE?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/YsPIn5sqkKE?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/bQ657FXtvIs?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/b1Xk6c06ewA?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/sBA5StcOQ2A?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/DkN2hDK9WCI?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/mBsz3vAijOE?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/N4vEzu6Hig0?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="short-card">
+          <span class="short-badge">Short</span>
+          <iframe src="https://www.youtube.com/embed/H-IUZ3Jy6Zw?rel=0&modestbranding=1&iv_load_policy=3" title="Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /audiovisual -->
+
+  <!-- ===== DESIGN & BRANDING PANEL ===== -->
+  <div class="cat-panel" id="cat-design">
+    <div class="design-grid">
+
+      <!-- Card featured -->
+      <div class="design-card featured">
+        <div class="design-card-img" style="background: linear-gradient(135deg, #1a0a2e 0%, #2d1060 100%);">
+          <div class="ph-bg">
+            <div style="font-size:4rem;opacity:.25">&#127912;</div>
+            <div style="font-size:.8rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:2px">Substituir por imagem</div>
+          </div>
+          <div class="design-card-hover">
+            <span>Ver projeto</span>
+          </div>
+        </div>
+        <div class="design-card-body">
+          <div class="design-card-tag">Identidade Visual</div>
+          <div class="design-card-title">Projeto Destaque — Sua marca aqui</div>
+          <div class="design-card-sub">Branding completo</div>
+        </div>
+      </div>
+
+      <!-- Card normal -->
+      <div class="design-card">
+        <div class="design-card-img" style="background: linear-gradient(135deg, #0a1a2e 0%, #103060 100%);">
+          <div class="ph-bg">
+            <div style="font-size:3rem;opacity:.25">&#128247;</div>
+            <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
+          </div>
+          <div class="design-card-hover"><span>Ver projeto</span></div>
+        </div>
+        <div class="design-card-body">
+          <div class="design-card-tag">Social Media</div>
+          <div class="design-card-title">Pack de posts — Feed Instagram</div>
+          <div class="design-card-sub">Design de conteudo</div>
+        </div>
+      </div>
+
+      <div class="design-card">
+        <div class="design-card-img" style="background: linear-gradient(135deg, #0d2010 0%, #1a4020 100%);">
+          <div class="ph-bg">
+            <div style="font-size:3rem;opacity:.25">&#128196;</div>
+            <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
+          </div>
+          <div class="design-card-hover"><span>Ver projeto</span></div>
+        </div>
+        <div class="design-card-body">
+          <div class="design-card-tag">Branding</div>
+          <div class="design-card-title">Manual de marca — Guia visual</div>
+          <div class="design-card-sub">Identidade completa</div>
+        </div>
+      </div>
+
+      <div class="design-card">
+        <div class="design-card-img" style="background: linear-gradient(135deg, #2e0a1a 0%, #601030 100%);">
+          <div class="ph-bg">
+            <div style="font-size:3rem;opacity:.25">&#128293;</div>
+            <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
+          </div>
+          <div class="design-card-hover"><span>Ver projeto</span></div>
+        </div>
+        <div class="design-card-body">
+          <div class="design-card-tag">Campanha</div>
+          <div class="design-card-title">Lancamento digital — Campanha criativa</div>
+          <div class="design-card-sub">Design e estrategia</div>
+        </div>
+      </div>
+
+      <div class="design-card">
+        <div class="design-card-img" style="background: linear-gradient(135deg, #0a2a2e 0%, #105060 100%);">
+          <div class="ph-bg">
+            <div style="font-size:3rem;opacity:.25">&#127760;</div>
+            <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
+          </div>
+          <div class="design-card-hover"><span>Ver projeto</span></div>
+        </div>
+        <div class="design-card-body">
+          <div class="design-card-tag">Carrossel</div>
+          <div class="design-card-title">Carrossel educativo — Conteudo rico</div>
+          <div class="design-card-sub">Engajamento e alcance</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /design -->
+
+  <!-- ===== ESTRATEGIA DIGITAL PANEL ===== -->
+  <div class="cat-panel" id="cat-estrategia">
+    <div class="estrategia-grid">
+
+      <div class="estrategia-card">
+        <div class="est-icon" style="background:rgba(155,48,200,.15)">&#128202;</div>
+        <h3>Planejamento de Conteudo</h3>
+        <p>Calendarios editoriais, temas mensais, pautas estrategicas e briefings prontos para producao. Conteudo com objetivo e consistencia.</p>
+        <span class="est-coming">Em breve: cases reais</span>
+      </div>
+
+      <div class="estrategia-card">
+        <div class="est-icon" style="background:rgba(62,198,198,.15)">&#127919;</div>
+        <h3>Posicionamento de Marca</h3>
+        <p>Analise de concorrencia, definicao de persona, tom de voz e identidade comunicacional para marcas que querem ser lembradas.</p>
+        <span class="est-coming">Em breve: cases reais</span>
+      </div>
+
+      <div class="estrategia-card">
+        <div class="est-icon" style="background:rgba(91,187,74,.15)">&#128200;</div>
+        <h3>Growth e Metricas</h3>
+        <p>Acompanhamento de KPIs, relatorios de desempenho, ajustes de estrategia e tomada de decisao orientada por dados.</p>
+        <span class="est-coming">Em breve: cases reais</span>
+      </div>
+
+      <div class="estrategia-card">
+        <div class="est-icon" style="background:rgba(224,64,160,.15)">&#128640;</div>
+        <h3>Lancamentos Digitais</h3>
+        <p>Estrutura completa de lancamento: funil, conteudo de aquecimento, dia D e pos-lancamento. Da estrategia a execucao.</p>
+        <span class="est-coming">Em breve: cases reais</span>
+      </div>
+
+    </div>
+  </div><!-- /estrategia -->
+
 </section>
 
 <!-- DEPOIMENTOS -->
@@ -590,6 +969,52 @@
       submitBtn.disabled = false;
     });
   });
+
+/* ===========================
+   Portfolio Tabs
+=========================== */
+
+const catTabs = document.querySelectorAll(".cat-tab");
+const catPanels = document.querySelectorAll(".cat-panel");
+
+catTabs.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        catTabs.forEach(t => t.classList.remove("active"));
+        catPanels.forEach(p => p.classList.remove("active"));
+
+        tab.classList.add("active");
+
+        document
+            .getElementById("cat-" + tab.dataset.cat)
+            .classList.add("active");
+
+    });
+
+});
+
+
+const subTabs = document.querySelectorAll(".sub-tab");
+const subPanels = document.querySelectorAll(".sub-panel");
+
+subTabs.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        subTabs.forEach(t => t.classList.remove("active"));
+        subPanels.forEach(p => p.classList.remove("active"));
+
+        tab.classList.add("active");
+
+        document
+            .getElementById("sub-" + tab.dataset.sub)
+            .classList.add("active");
+
+    });
+
+});
+
 </script>
 </body>
 </html>
