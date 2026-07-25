@@ -103,7 +103,6 @@
   .portfolio-card-short { border-radius: 14px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.15); position: relative; aspect-ratio: 9/16; transition: transform .3s, box-shadow .3s; background: #000; }
   .portfolio-card-short:hover { transform: scale(1.03); box-shadow: 0 14px 32px rgba(0,0,0,.22); }
   .portfolio-card-short iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
-  .shorts-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 1.5rem; }
   .youtube-embed {
   position: relative;
   width: 100%;
@@ -133,14 +132,42 @@
   .portfolio-info span { color: rgba(255,255,255,.7); font-size: .8rem; font-weight: 600; }
   .portfolio-card .gdrive-video-card { position: absolute; inset: 0; aspect-ratio: auto; }
 
-
-  /* ===================================PORTFOLIO ALTERNATIVO=================================== */
   /* ===================== PORTFOLIO ===================== */
   #portfolio { background: #0f0f1a; padding-bottom: 7rem; }
   #portfolio .section-tag { color: var(--cyan); }
   #portfolio .section-title { color: #fff; }
   #portfolio .section-sub { color: rgba(255,255,255,.55); }
   .section-disclaimer { font-size: .85rem; color: rgba(255,255,255,.35); font-style: italic; margin-top: .75rem; max-width: 620px; line-height: 1.6; }
+
+  .portfolio-card-embed{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 12px 50px rgba(0,0,0,.45);
+}
+
+.portfolio-card-embed iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+}
+
+.portfolio-badge{
+    position:absolute;
+    top:16px;
+    left:16px;
+    z-index:5;
+    background:rgba(155,48,200,.9);
+    color:#fff;
+    font-size:.75rem;
+    font-weight:800;
+    padding:.35rem .8rem;
+    border-radius:999px;
+}
 
   .portfolio-intro { margin-bottom: 3rem; }
 
@@ -488,7 +515,7 @@
       <div class="portfolio-card-embed">
       <span class="portfolio-badge">Edição</span>
         <iframe
-          src="https://www.youtube.com/embed/F03jG--pr4s?rel=0&modestbranding=1&iv_load_policy=3"
+          src="https://www.youtube.com/embed/tBqkQQgGBKw?rel=0&modestbranding=1&iv_load_policy=3"
           title="Placeholder"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
