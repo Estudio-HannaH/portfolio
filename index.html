@@ -254,6 +254,11 @@
     border: 1.5px solid rgba(255,255,255,.06);
     transition: all .3s; cursor: pointer;
   }
+  .design-card{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+  }
   .design-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.4); border-color: rgba(155,48,200,.35); }
   .design-card-img {
     aspect-ratio: 4/3;
@@ -380,6 +385,74 @@
     section { padding: 4rem 5%; }
     .shorts-grid { grid-template-columns: repeat(2, 1fr); gap: .7rem; }
   }
+
+  /* MODAL */
+  /* ================= LIGHTBOX ================= */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+    z-index:9999;
+}
+
+.lightbox.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.lightbox-image{
+
+    max-width:92vw;
+    max-height:92vh;
+
+    border-radius:14px;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+
+    transform:scale(.9);
+    transition:.3s;
+
+}
+
+.lightbox.active .lightbox-image{
+    transform:scale(1);
+}
+
+.lightbox-close{
+
+    position:absolute;
+
+    top:30px;
+    right:40px;
+
+    color:#fff;
+    font-size:48px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:.25s;
+
+}
+
+.lightbox-close:hover{
+
+    transform:scale(1.15);
+
+    color:var(--purple);
+
+}
+
 </style>
 </head>
 <body>
@@ -602,13 +675,19 @@
     <div class="design-grid">
 
       <!-- Card featured -->
-      <div class="design-card featured">
+        <!-- <a
+        href="https://i.ibb.co/mF29wmcc/assessoria.png"
+        target="_blank"
+        class="design-card featured"> -->
+        <div
+        class="design-card featured"
+        data-image="https://i.ibb.co/mF29wmcc/assessoria.png">
           <div class="design-card-img">
               <img
                   src="https://i.ibb.co/mF29wmcc/assessoria.png"
                   alt="Assessoria no Paraguai">
               <div class="design-card-hover">
-                  <span>Ver projeto</span>
+                  <span>Ver detalhes</span>
               </div>
           </div>
           <div class="design-card-body">
@@ -622,41 +701,26 @@
                   Branding • Feed • Carrosséis • Vídeos
               </div>
           </div>
-      </div>
-
-
-      <!-- <div class="design-card featured">
-        <div class="design-card-img" style="background: linear-gradient(135deg, #1a0a2e 0%, #2d1060 100%);">
-          <div class="ph-bg">
-            <div style="font-size:4rem;opacity:.25">&#127912;</div>
-            <div style="font-size:.8rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:2px">Substituir por imagem</div>
-          </div>
-          <div class="design-card-hover">
-            <span>Ver projeto</span>
-          </div>
+        <!-- </a> -->
         </div>
-        <div class="design-card-body">
-          <div class="design-card-tag">Identidade Visual</div>
-          <div class="design-card-title">Projeto Destaque — Sua marca aqui</div>
-          <div class="design-card-sub">Branding completo</div>
-        </div>
-      </div> -->
 
       <!-- Card normal -->
-      <div class="design-card">
+      <a
+        href=https://i.ibb.co/bjd67SZ4/foto-Amor.png
+        target="_blank"
+        class="design-card">
         <div class="design-card-img" style="background: linear-gradient(135deg, #0a1a2e 0%, #103060 100%);">
-          <div class="ph-bg">
-            <div style="font-size:3rem;opacity:.25">&#128247;</div>
-            <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
-          </div>
-          <div class="design-card-hover"><span>Ver projeto</span></div>
+          <img
+                  src="https://i.ibb.co/bjd67SZ4/foto-Amor.png"
+                  alt="Foto Amor">
+          <div class="design-card-hover"><span>Ver detalhes</span></div>
         </div>
         <div class="design-card-body">
           <div class="design-card-tag">Social Media</div>
           <div class="design-card-title">Pack de posts — Feed Instagram</div>
           <div class="design-card-sub">Design de conteudo</div>
         </div>
-      </div>
+      </a>
 
       <div class="design-card">
         <div class="design-card-img" style="background: linear-gradient(135deg, #0d2010 0%, #1a4020 100%);">
@@ -664,7 +728,7 @@
             <div style="font-size:3rem;opacity:.25">&#128196;</div>
             <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
           </div>
-          <div class="design-card-hover"><span>Ver projeto</span></div>
+          <div class="design-card-hover"><span>Ver detalhes</span></div>
         </div>
         <div class="design-card-body">
           <div class="design-card-tag">Branding</div>
@@ -679,7 +743,7 @@
             <div style="font-size:3rem;opacity:.25">&#128293;</div>
             <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
           </div>
-          <div class="design-card-hover"><span>Ver projeto</span></div>
+          <div class="design-card-hover"><span>Ver detalhes</span></div>
         </div>
         <div class="design-card-body">
           <div class="design-card-tag">Campanha</div>
@@ -694,7 +758,7 @@
             <div style="font-size:3rem;opacity:.25">&#127760;</div>
             <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
           </div>
-          <div class="design-card-hover"><span>Ver projeto</span></div>
+          <div class="design-card-hover"><span>Ver detalhes</span></div>
         </div>
         <div class="design-card-body">
           <div class="design-card-tag">Carrossel</div>
@@ -919,6 +983,71 @@ subTabs.forEach(tab => {
 
 });
 
+/* ===========================
+   Portfolio Modal
+=========================== */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeLightbox = document.querySelector(".lightbox-close");
+
+document.querySelectorAll(".design-card").forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        lightboxImg.src = card.dataset.image;
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow="hidden";
+
+    });
+
+});
+
+closeLightbox.addEventListener("click",()=>{
+
+    lightbox.classList.remove("active");
+
+    document.body.style.overflow="";
+
+});
+
+lightbox.addEventListener("click",(e)=>{
+
+    if(e.target===lightbox){
+
+        lightbox.classList.remove("active");
+
+        document.body.style.overflow="";
+
+    }
+
+});
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Escape"){
+
+        lightbox.classList.remove("active");
+
+        document.body.style.overflow="";
+
+    }
+
+});
 </script>
+
+<div id="lightbox" class="lightbox">
+
+    <span class="lightbox-close">&times;</span>
+
+    <img
+        id="lightbox-img"
+        class="lightbox-image"
+        src=""
+        alt="Projeto">
+
+</div>
+
 </body>
 </html>
