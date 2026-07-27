@@ -304,6 +304,127 @@
   .design-card.featured { grid-column: span 2; }
   .design-card.featured .design-card-img { aspect-ratio: 2/1; }
 
+    /* ================= CARROSSEL DESIGN ================= */
+  .carousel-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 0 3rem;
+    margin: 0 -6%;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 1rem 6% 2rem;
+    scroll-padding-left: 6%;
+    scroll-padding-right: 6%;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-track .design-card {
+    flex: 0 0 340px;
+    scroll-snap-align: start;
+    cursor: pointer;
+  }
+  .carousel-track .design-card.featured {
+    flex: 0 0 540px;
+  }
+  @media (max-width: 900px) {
+    .carousel-track .design-card,
+    .carousel-track .design-card.featured {
+      flex: 0 0 80vw;
+    }
+  }
+  @media (max-width: 600px) {
+    .carousel-track .design-card,
+    .carousel-track .design-card.featured {
+      flex: 0 0 85vw;
+    }
+  }
+
+  /* Botões de navegação */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(155,48,200,.85);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(155,48,200,.4);
+    transition: all .25s;
+  }
+  .carousel-btn:hover {
+    background: var(--purple);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .carousel-btn.prev { left: 1rem; }
+  .carousel-btn.next { right: 1rem; }
+  @media (max-width: 600px) {
+    .carousel-btn { width: 42px; height: 42px; font-size: 1.1rem; }
+    .carousel-btn.prev { left: .5rem; }
+    .carousel-btn.next { right: .5rem; }
+  }
+
+  /* Dots */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: .6rem;
+    margin-top: .5rem;
+  }
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,.2);
+    cursor: pointer;
+    transition: all .25s;
+  }
+  .carousel-dot.active {
+    background: var(--purple);
+    width: 28px;
+    border-radius: 5px;
+  }
+
+  /* Fade nas bordas */
+  .carousel-wrap::before,
+  .carousel-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 3rem;
+    width: 80px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .carousel-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, #0f0f1a, transparent);
+  }
+  .carousel-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, #0f0f1a, transparent);
+  }
+  @media (max-width: 600px) {
+    .carousel-wrap::before,
+    .carousel-wrap::after { width: 40px; }
+  }
+
   /* ---- ESTRATEGIA PANEL ---- */
   .estrategia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
   .estrategia-card {
@@ -671,104 +792,88 @@
   </div><!-- /audiovisual -->
 
   <!-- ===== DESIGN & BRANDING PANEL ===== -->
-  <div class="cat-panel" id="cat-design">
-    <div class="design-grid">
+<div class="cat-panel" id="cat-design">
+  <div class="carousel-wrap">
+    <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+    <button class="carousel-btn next" aria-label="Próximo">&#10095;</button>
 
-      <!-- Card featured -->
-        <!-- <a
-        href="https://i.ibb.co/mF29wmcc/assessoria.png"
-        target="_blank"
-        class="design-card featured"> -->
-        <div
-        class="design-card featured"
-        data-image="https://i.ibb.co/mF29wmcc/assessoria.png">
-          <div class="design-card-img">
-              <img
-                  src="https://i.ibb.co/mF29wmcc/assessoria.png"
-                  alt="Assessoria no Paraguai">
-              <div class="design-card-hover">
-                  <span>Ver detalhes</span>
-              </div>
-          </div>
-          <div class="design-card-body">
-              <div class="design-card-tag">
-                  Social Media
-              </div>
-              <div class="design-card-title">
-                  Assessoria no Paraguai
-              </div>
-              <div class="design-card-sub">
-                  Branding • Feed • Carrosséis • Vídeos
-              </div>
-          </div>
-        <!-- </a> -->
-        </div>
+    <div class="carousel-track" id="designCarousel">
 
-      <!-- Card normal -->
-      <a
-        href=https://i.ibb.co/bjd67SZ4/foto-Amor.png
-        target="_blank"
-        class="design-card">
-        <div class="design-card-img" style="background: linear-gradient(135deg, #0a1a2e 0%, #103060 100%);">
-          <img
-                  src="https://i.ibb.co/bjd67SZ4/foto-Amor.png"
-                  alt="Foto Amor">
-          <div class="design-card-hover"><span>Ver detalhes</span></div>
-        </div>
-        <div class="design-card-body">
-          <div class="design-card-tag">Social Media</div>
-          <div class="design-card-title">Pack de posts — Feed Instagram</div>
-          <div class="design-card-sub">Design de conteudo</div>
-        </div>
-      </a>
-
-      <div class="design-card">
-        <div class="design-card-img" style="background: linear-gradient(135deg, #0d2010 0%, #1a4020 100%);">
-          <div class="ph-bg">
-            <div style="font-size:3rem;opacity:.25">&#128196;</div>
-            <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
-          </div>
-          <div class="design-card-hover"><span>Ver detalhes</span></div>
-        </div>
-        <div class="design-card-body">
-          <div class="design-card-tag">Branding</div>
-          <div class="design-card-title">Manual de marca — Guia visual</div>
-          <div class="design-card-sub">Identidade completa</div>
-        </div>
+    <!-- Card featured -->
+    <div class="design-card featured" data-image="https://i.ibb.co/mF29wmcc/assessoria.png">
+      <div class="design-card-img">
+        <img src="https://i.ibb.co/mF29wmcc/assessoria.png" alt="Assessoria no Paraguai">
+        <div class="design-card-hover"><span>Ver detalhes</span></div>
       </div>
-
-      <div class="design-card">
-        <div class="design-card-img" style="background: linear-gradient(135deg, #2e0a1a 0%, #601030 100%);">
-          <div class="ph-bg">
-            <div style="font-size:3rem;opacity:.25">&#128293;</div>
-            <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
-          </div>
-          <div class="design-card-hover"><span>Ver detalhes</span></div>
-        </div>
-        <div class="design-card-body">
-          <div class="design-card-tag">Campanha</div>
-          <div class="design-card-title">Lancamento digital — Campanha criativa</div>
-          <div class="design-card-sub">Design e estrategia</div>
-        </div>
+      <div class="design-card-body">
+        <div class="design-card-tag">Social Media</div>
+        <div class="design-card-title">Assessoria no Paraguai</div>
+        <div class="design-card-sub">Branding • Feed • Carrosséis • Vídeos</div>
       </div>
-
-      <div class="design-card">
-        <div class="design-card-img" style="background: linear-gradient(135deg, #0a2a2e 0%, #105060 100%);">
-          <div class="ph-bg">
-            <div style="font-size:3rem;opacity:.25">&#127760;</div>
-            <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
-          </div>
-          <div class="design-card-hover"><span>Ver detalhes</span></div>
-        </div>
-        <div class="design-card-body">
-          <div class="design-card-tag">Carrossel</div>
-          <div class="design-card-title">Carrossel educativo — Conteudo rico</div>
-          <div class="design-card-sub">Engajamento e alcance</div>
-        </div>
-      </div>
-
     </div>
-  </div><!-- /design -->
+
+    <!-- Card normal -->
+    <div class="design-card featured" data-image="https://i.ibb.co/bjd67SZ4/foto-Amor.png">
+      <div class="design-card-img" style="background: linear-gradient(135deg, #0a1a2e 0%, #103060 100%);">
+        <img src="https://i.ibb.co/bjd67SZ4/foto-Amor.png" alt="Foto Amor">
+        <div class="design-card-hover"><span>Ver detalhes</span></div>
+      </div>
+      <div class="design-card-body">
+        <div class="design-card-tag">Social Media</div>
+        <div class="design-card-title">Pack de posts — Feed Instagram</div>
+        <div class="design-card-sub">Design de conteúdo</div>
+      </div>
+    </div>
+
+    <!-- Placeholder cards com data-image para futura substituição -->
+    <div class="design-card featured" data-image="https://via.placeholder.com/800x600/0d2010/ffffff?text=Manual+de+Marca">
+      <div class="design-card-img" style="background: linear-gradient(135deg, #0d2010 0%, #1a4020 100%);">
+        <div class="ph-bg">
+          <div style="font-size:3rem;opacity:.25">&#128196;</div>
+          <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
+        </div>
+        <div class="design-card-hover"><span>Ver detalhes</span></div>
+      </div>
+      <div class="design-card-body">
+        <div class="design-card-tag">Branding</div>
+        <div class="design-card-title">Manual de marca — Guia visual</div>
+        <div class="design-card-sub">Identidade completa</div>
+      </div>
+    </div>
+
+    <div class="design-card featured" data-image="https://via.placeholder.com/800x600/2e0a1a/ffffff?text=Lancamento">
+      <div class="design-card-img" style="background: linear-gradient(135deg, #2e0a1a 0%, #601030 100%);">
+        <div class="ph-bg">
+          <div style="font-size:3rem;opacity:.25">&#128293;</div>
+          <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
+        </div>
+        <div class="design-card-hover"><span>Ver detalhes</span></div>
+      </div>
+      <div class="design-card-body">
+        <div class="design-card-tag">Campanha</div>
+        <div class="design-card-title">Lançamento digital — Campanha criativa</div>
+        <div class="design-card-sub">Design e estratégia</div>
+      </div>
+    </div>
+
+    <div class="design-card featured" data-image="https://via.placeholder.com/800x600/0a2a2e/ffffff?text=Carrossel">
+      <div class="design-card-img" style="background: linear-gradient(135deg, #0a2a2e 0%, #105060 100%);">
+        <div class="ph-bg">
+          <div style="font-size:3rem;opacity:.25">&#127760;</div>
+          <div style="font-size:.75rem;font-weight:800;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1.5px">Substituir por imagem</div>
+        </div>
+        <div class="design-card-hover"><span>Ver detalhes</span></div>
+      </div>
+      <div class="design-card-body">
+        <div class="design-card-tag">Carrossel</div>
+        <div class="design-card-title">Carrossel educativo — Conteúdo rico</div>
+        <div class="design-card-sub">Engajamento e alcance</div>
+      </div>
+    </div>
+
+  <div class="carousel-dots" id="designDots"></div>
+  </div>
+</div><!-- /design -->
 
   <!-- ===== ESTRATEGIA DIGITAL PANEL ===== -->
   <div class="cat-panel" id="cat-estrategia">
@@ -887,6 +992,18 @@
   <p>Copyright 2026 <strong>Estudio Hannah</strong> - Audiovisual e Estrategia Digital - Feito com carinho</p>
 </footer>
 
+<div id="lightbox" class="lightbox">
+
+    <span class="lightbox-close">&times;</span>
+
+    <img
+        id="lightbox-img"
+        class="lightbox-image"
+        src=""
+        alt="Projeto">
+
+</div>
+
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -984,70 +1101,104 @@ subTabs.forEach(tab => {
 });
 
 /* ===========================
-   Portfolio Modal
+   Portfolio Modal (Behance-style)
 =========================== */
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const closeLightbox = document.querySelector(".lightbox-close");
 
-document.querySelectorAll(".design-card").forEach(card=>{
-
-    card.addEventListener("click",()=>{
-
-        lightboxImg.src = card.dataset.image;
-
-        lightbox.classList.add("active");
-
-        document.body.style.overflow="hidden";
-
-    });
-
+document.querySelectorAll(".design-card").forEach(card => {
+  card.addEventListener("click", (e) => {
+    e.preventDefault(); // impede navegação se for link
+    const imgUrl = card.dataset.image;
+    if (!imgUrl) return; // segurança: só abre se tiver imagem
+    lightboxImg.src = imgUrl;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
 });
 
-closeLightbox.addEventListener("click",()=>{
+closeLightbox.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+});
 
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
     lightbox.classList.remove("active");
-
-    document.body.style.overflow="";
-
+    document.body.style.overflow = "";
+  }
 });
 
-lightbox.addEventListener("click",(e)=>{
-
-    if(e.target===lightbox){
-
-        lightbox.classList.remove("active");
-
-        document.body.style.overflow="";
-
-    }
-
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+  }
 });
 
-document.addEventListener("keydown",(e)=>{
+/* ===========================
+   Design Carousel
+=========================== */
+(function(){
+  const track = document.getElementById('designCarousel');
+  if (!track) return;
+  const cards = track.querySelectorAll('.design-card');
+  const dotsContainer = document.getElementById('designDots');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
 
-    if(e.key==="Escape"){
+  // Criar dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+    dot.addEventListener('click', () => {
+      cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    });
+    dotsContainer.appendChild(dot);
+  });
 
-        lightbox.classList.remove("active");
+  const dots = dotsContainer.querySelectorAll('.carousel-dot');
 
-        document.body.style.overflow="";
+  function updateDots() {
+    const scrollLeft = track.scrollLeft;
+    const cardWidth = cards[0].offsetWidth + 24;
+    const index = Math.round(scrollLeft / cardWidth);
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
 
-    }
+  track.addEventListener('scroll', () => {
+    window.requestAnimationFrame(updateDots);
+  });
 
-});
+  prevBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -track.offsetWidth * 0.7, behavior: 'smooth' });
+  });
+  nextBtn.addEventListener('click', () => {
+    track.scrollBy({ left: track.offsetWidth * 0.7, behavior: 'smooth' });
+  });
+
+  // Drag/swipe com mouse
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', (e) => {
+    isDown = true;
+    track.style.cursor = 'grabbing';
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = 'grab'; });
+  track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; });
+  track.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    track.scrollLeft = scrollLeft - walk;
+  });
+  track.style.cursor = 'grab';
+})();
+
 </script>
-
-<div id="lightbox" class="lightbox">
-
-    <span class="lightbox-close">&times;</span>
-
-    <img
-        id="lightbox-img"
-        class="lightbox-image"
-        src=""
-        alt="Projeto">
-
-</div>
-
 </body>
 </html>
